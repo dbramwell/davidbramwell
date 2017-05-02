@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "ENVIRONMENT=test jasmine; mocha -t 10000 integrationTests/**/*",
-    "postinstall": "cd src/services/emailService && npm install"
+    "postinstall": "for service in $(ls src/services/); do cd src/services/$service && npm install && cd -; done"
   },
   "author": "",
   "license": "ISC",
