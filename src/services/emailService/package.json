@@ -1,0 +1,8 @@
+{
+  "name": "emailService",
+  "version": "1.0.0",
+  "description": "My home page - emailService",
+  "dependencies": {
+    "nodemailer": "^4.0.1"
+  }
+}

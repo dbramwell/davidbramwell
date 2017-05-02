@@ -31,9 +31,9 @@ function getMailOptions(name, fromEmail, toEmail, content) {
 Emailer.prototype.sendEmail = function(name, fromEmail, toEmail, content, cb) {
 	this.transporter.sendMail(getMailOptions(name, fromEmail, toEmail, content), function(error, info) {
 		if (error) {
-			cb(null, {status: error.responseCode, error: error.response});
+			cb(null, {statusCode: error.responseCode, body: JSON.stringify({error: error.response})});
 		} else {
-			cb(null, {status: 200});
+			cb(null, {statusCode: 200});
 		}
 	});
 };

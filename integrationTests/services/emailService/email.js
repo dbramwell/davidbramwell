@@ -19,8 +19,8 @@ describe('email', () => {
 
   it('returns correct error when nodemailler env vars not set', () => {
     return wrapped.run({body: '{"name": "David", "fromEmail": "david@bramwell.co.uk", "content": "This is my email content"}'}).then((response) => {
-      expect(response.status).to.equal(535);
-      expect(response.error).to.equal('535 5.7.0 Mailgun is not loving your login or password');
+      expect(response.statusCode).to.equal(535);
+      expect(JSON.parse(response.body).error).to.equal('535 5.7.0 Mailgun is not loving your login or password');
     });
   });
 });

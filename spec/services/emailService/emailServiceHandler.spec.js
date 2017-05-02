@@ -27,7 +27,7 @@ describe("emailServiceHandler", function() {
   it('should return error message if sendEmail returns error', function() {
     const emailer = {sendEmail: function(name, fromEmail, toEmail, content){}};
     EmailServiceHandler.emailer = emailer;
-    const expectedResponse = {status: 500, error: "email not sent"};
+    const expectedResponse = {statusCode: 500, body: '{"error": "email not sent"}'};
     spyOn(emailer, "sendEmail").and.returnValue(expectedResponse);
     EmailServiceHandler.email(event, null, function(something, response) {
       expect(response).toEqual(expectedResponse);
@@ -37,7 +37,7 @@ describe("emailServiceHandler", function() {
   it('should return success status if sendEmail returns success', function() {
     const emailer = {sendEmail: function(name, fromEmail, toEmail, content){}};
     EmailServiceHandler.emailer = emailer;
-    const expectedResponse = {status: 200}
+    const expectedResponse = {statusCode: 200}
     spyOn(emailer, "sendEmail").and.returnValue(expectedResponse);
     EmailServiceHandler.email(event, null, function(something, response) {
       expect(response).toEqual(expectedResponse);
