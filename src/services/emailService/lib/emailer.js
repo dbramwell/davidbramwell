@@ -1,6 +1,14 @@
 var nodemailer = require('nodemailer');
 
-function Emailer() {}
+function Emailer() {
+	this.transporter = nodemailer.createTransport({
+		service: 'Mailgun',
+		auth: {
+			user: process.env.MAILGUN_EMAIL,
+			pass: process.env.MAILGUN_PASS
+		}
+	});
+}
 
 function generateContent(name, email, content) {
 	return '<h2>Name:</h2>' +
@@ -20,24 +28,19 @@ function getMailOptions(name, fromEmail, toEmail, content) {
 	};
 }
 
-function getTransporter() {
-	return nodemailer.createTransport({
-		service: 'Mailgun',
-		auth: {
-			user: process.env.MAILGUN_EMAIL,
-			pass: process.env.MAILGUN_PASS
+Emailer.prototype.sendEmail = function(name, fromEmail, toEmail, content, cb) {
+	this.transporter.sendMail(getMailOptions(name, fromEmail, toEmail, content), function(error, info) {
+		if (error) {
+			cb(null, {status: error.responseCode, error: error.response});
+		} else {
+			cb(null, {status: 200});
 		}
 	});
-}
-
-Emailer.prototype.sendEmail = function(name, fromEmail, toEmail, content) {
-	this.getTransporter().sendMail(getMailOptions(name, fromEmail, toEmail, content));
 };
 
 if (process.env.ENVIRONMENT === "test") {
 	Emailer.prototype.generateContent = generateContent;
 	Emailer.prototype.getMailOptions = getMailOptions;
-	Emailer.prototype.getTransporter = getTransporter;
 }
 
 module.exports = Emailer;

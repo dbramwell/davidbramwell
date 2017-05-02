@@ -34,19 +34,32 @@ describe("emailer", function() {
     });
   });
 
-  it("getTransporter returns nodemailer transport for mailgun service", function() {
-    const transporter = emailer.getTransporter();
-    expect(transporter.options.service).toEqual('Mailgun');
-    expect(transporter.options.auth.user).toEqual(process.env.MAILGUN_EMAIL);
-    expect(transporter.options.auth.pass).toEqual(process.env.MAILGUN_PASS);
+  it("emailer is initialised with transporter of nodemailer transport for mailgun service", function() {
+    expect(emailer.transporter.options.service).toEqual('Mailgun');
+    expect(emailer.transporter.options.auth.user).toEqual(process.env.MAILGUN_EMAIL);
+    expect(emailer.transporter.options.auth.pass).toEqual(process.env.MAILGUN_PASS);
   });
 
   it('sendEmail should send correct mail', function() {
     const transport = mockTransport();
-    const transporter = nodemailer.createTransport(transport);
-    spyOn(emailer, "getTransporter").and.returnValue(transporter);
-    emailer.sendEmail(name, fromEmail, toEmail, content);
-    expect(emailer.getTransporter).toHaveBeenCalled();
+    emailer.transporter = nodemailer.createTransport(transport);
+    emailer.sendEmail(name, fromEmail, toEmail, content, function(){});
+    expect(transport.sentMail.length).toEqual(1);
+    expect(transport.sentMail[0].data.to).toEqual(toEmail);
+    expect(transport.sentMail[0].data.from).toEqual(fromEmail);
+    expect(transport.sentMail[0].message.content).toEqual(
+      '<h2>Name:</h2>' +
+      '<p>' + name + '</p><br>' + 
+      '<h2>Email:</h2>' + 
+      '<p>' + fromEmail + '</p><br>' +
+      '<h2>Content:</h2><p>' + content + '</p>');
+    expect(transport.sentMail[0].data.subject).toEqual('Website contact from ' + fromEmail);
+  });
+
+  it('sendEmail should return error if error occurs', function() {
+    const transport = mockTransport();
+    emailer.transporter = nodemailer.createTransport(transport);
+    emailer.sendEmail(name, fromEmail, toEmail, content, function(){});
     expect(transport.sentMail.length).toEqual(1);
     expect(transport.sentMail[0].data.to).toEqual(toEmail);
     expect(transport.sentMail[0].data.from).toEqual(fromEmail);
