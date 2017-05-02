@@ -4,7 +4,8 @@
   "description": "My home page",
   "main": "index.js",
   "scripts": {
-    "test": "ENVIRONMENT=test jasmine; mocha -t 10000 integrationTests/**/*"
+    "test": "ENVIRONMENT=test jasmine; mocha -t 10000 integrationTests/**/*",
+    "postinstall": "cd src/services/emailService && npm install"
   },
   "author": "",
   "license": "ISC",
