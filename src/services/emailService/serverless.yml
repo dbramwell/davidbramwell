@@ -57,6 +57,10 @@ provider:
 
 functions:
   email:
+    environment:
+      MAILGUN_EMAIL: ${file(.mailgun.yml):MAILGUN_EMAIL}
+      MAILGUN_PASS: ${file(.mailgun.yml):MAILGUN_PASS}
+      TO_EMAIL: ${file(.toEmail.yml):TO_EMAIL}
     handler: emailServiceHandler.email
     events:
       - http: POST email
