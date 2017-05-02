@@ -22,10 +22,9 @@ class EmailForm extends Component {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-
-    this.setState({
-      form: {[name]: value}
-    });
+    var form = this.state.form;
+    form[name] = value;
+    this.setState({form: form});
     this.setState({valid: this.validateEmail(this.state.form.fromEmail)});
   }
 
@@ -63,7 +62,7 @@ class EmailForm extends Component {
           Message:
           <textarea name="content" value={this.state.form.content} onChange={this.handleInputChange}/>
         </label>
-        <input type="submit" value="Submit" disabled={!this.state.valid} />
+        <input type="submit" value="Submit" disabled={!this.state.valid}/>
       </form>
     );
   }
