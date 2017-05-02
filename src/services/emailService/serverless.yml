@@ -63,7 +63,10 @@ functions:
       TO_EMAIL: ${file(.toEmail.yml):TO_EMAIL}
     handler: emailServiceHandler.email
     events:
-      - http: POST email
+      - http:
+          method: post
+          path: email
+          cors: true
 
 plugins:
   - serverless-mocha-plugin

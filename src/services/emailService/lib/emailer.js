@@ -31,9 +31,20 @@ function getMailOptions(name, fromEmail, toEmail, content) {
 Emailer.prototype.sendEmail = function(name, fromEmail, toEmail, content, cb) {
 	this.transporter.sendMail(getMailOptions(name, fromEmail, toEmail, content), function(error, info) {
 		if (error) {
-			cb(null, {statusCode: error.responseCode, body: JSON.stringify({error: error.response})});
+			cb(null, {statusCode: error.responseCode,
+				body: JSON.stringify({error: error.response}),
+			    headers: {
+			        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+			        "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+			    }
+			});
 		} else {
-			cb(null, {statusCode: 200});
+			cb(null, {statusCode: 200,
+				headers: {
+			        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
+			        "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
+			    }
+			});
 		}
 	});
 };
