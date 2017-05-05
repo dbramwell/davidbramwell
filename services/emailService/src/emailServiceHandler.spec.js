@@ -1,5 +1,5 @@
 describe("emailServiceHandler", function() {
-  const EmailServiceHandler = require('../../../src/services/emailService/emailServiceHandler');
+  const EmailServiceHandler = require('./emailServiceHandler');
 
   beforeEach(function() {
     params = {name: "David", fromEmail: "david@bramwell.co.uk", content: "This is my email content"};

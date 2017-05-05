@@ -2,7 +2,7 @@ var nodemailer = require('nodemailer');
 var mockTransport = require('nodemailer-mock-transport');
 
 describe("emailer", function() {
-  var Emailer = require('../../../../src/services/emailService/lib/emailer');
+  var Emailer = require('./emailer');
 
   beforeEach(function() {
     emailer = new Emailer();
