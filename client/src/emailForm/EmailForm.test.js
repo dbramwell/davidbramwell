@@ -18,7 +18,7 @@ it('renders correct labels', () => {
   const form = shallow(<EmailForm />);
   const fields = form.find('label');
   expect(fields.length).toEqual(3);
-  expect(fields.at(0).contains("Name1:")).toBeTruthy();
+  expect(fields.at(0).contains("Name:")).toBeTruthy();
   expect(fields.at(1).contains("Email:")).toBeTruthy();
   expect(fields.at(2).contains("Message:")).toBeTruthy();
 });

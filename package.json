@@ -1,0 +1,9 @@
+{
+  "name": "davidbramwell",
+  "version": "1.0.0",
+  "description": "My home page",
+  "scripts": {
+    "install": "./install.sh",
+    "test": "./test.sh"
+  }
+}

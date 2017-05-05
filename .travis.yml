@@ -2,8 +2,3 @@ language: node_js
 node_js:
   - "iojs"
   - "7"
-before_script:
-  - ./install.sh
-"scripts": {
-  "test": "./test.sh"
-},
