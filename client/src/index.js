@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import EmailForm from './emailForm/EmailForm';
+import App from './App';
 import './index.css';
 
 ReactDOM.render(
-  <EmailForm />,
+  <App />,
   document.getElementById('root')
 );

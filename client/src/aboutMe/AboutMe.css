@@ -1,0 +1,24 @@
+div.aboutMe > div.jumbotron {
+	text-align: center;
+	height: 100%;
+	  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.aboutMe {
+	height: 100%;
+}
+
+div.queueAboutMe {
+	margin: 5rem;
+}
+
+div.queueAboutMe p {
+	margin: 0;
+}
+
+p.bold {
+	font-weight: bold;
+}

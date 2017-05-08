@@ -1,0 +1,6 @@
+div.home > div.jumbotron {
+	text-align: center;
+	padding: 3rem;
+	border-radius: 2rem;
+	margin: 10rem;
+}

@@ -1,0 +1,12 @@
+div.imageLinks {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+div.imageLinksContainer > div.jumbotron {
+	text-align: center;
+	padding: 3rem;
+	border-radius: 2rem;
+	margin: 10rem;
+}
