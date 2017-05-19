@@ -15,8 +15,10 @@ class Menu extends Component {
            </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem href="#aboutMe">About me</NavItem>
-              <NavItem href="#externalLinks">Links</NavItem>
+              <NavItem href="#aboutMe">About Me</NavItem>
+            </Nav>
+            <Nav pullRight>
+              <NavItem href="#contactMe">Contact Me</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

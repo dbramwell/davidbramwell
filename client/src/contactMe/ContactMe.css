@@ -1,0 +1,21 @@
+div.contactMe {
+	width: 60%;
+}
+
+div.contactMe div.jumbotron {
+	text-align: center;
+	padding: 3rem;
+}
+
+
+div.contactMe div.jumbotron div label{
+	text-align: left;
+	margin-top: 5px;
+}
+
+@media screen and (min-width: 1024px) {
+    div.contactMe div.jumbotron {
+	border-radius: 2rem;
+	margin: 10rem;
+  }
+}

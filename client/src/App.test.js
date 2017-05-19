@@ -20,14 +20,14 @@ it('contains about me section when created', () => {
   expect(aboutMe.length).toEqual(1);
 });
 
-it('contains imageLinks section when created', () => {
-  const app = shallow(<App />);
-  const imageLinks = app.find('ImageLinks');
-  expect(imageLinks.length).toEqual(1);
-});
-
 it('contains header menu', () => {
   const app = shallow(<App />);
   const menu = app.find('Menu');
   expect(menu.length).toEqual(1);
+});
+
+it('contains contact me form', () => {
+  const app = shallow(<App />);
+  const contactMe = app.find('ContactMe');
+  expect(contactMe.length).toEqual(1);
 });

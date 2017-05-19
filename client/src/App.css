@@ -1,6 +1,11 @@
 div.page {
-  height: 100vh;
+  margin-top: 50px;
+  min-height: 100vh;
   align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   justify-content: center;
 }
@@ -29,4 +34,10 @@ img:hover {
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
+}
+
+@media screen and (max-width: 1024px) {
+    #menu {
+        display: none !important;
+    }
 }

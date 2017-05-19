@@ -4,17 +4,19 @@
   "private": true,
   "dependencies": {
     "react": "^15.5.4",
+    "react-animate-on-scroll": "^1.1.2",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
-    "react-scroll-effects": "^1.0.12",
     "react-scrollable-anchor": "^0.4.2"
   },
   "devDependencies": {
     "enzyme": "^2.8.2",
+    "nock": "^9.0.13",
     "react-addons-test-utils": "^15.5.1",
     "react-scripts": "0.9.5",
     "react-test-renderer": "^15.5.4",
-    "serverless-s3-deploy": "^0.4.0"
+    "serverless-s3-deploy": "^0.4.0",
+    "node-fetch": "^1.6.3"
   },
   "scripts": {
     "start": "react-scripts start",

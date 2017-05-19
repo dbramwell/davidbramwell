@@ -3,16 +3,17 @@ import './App.css';
 import Home from './home/Home';
 import Menu from './menu/Menu';
 import AboutMe from './aboutMe/AboutMe';
-import ImageLinks from './imageLinks/ImageLinks';
+import ContactMe from './contactMe/ContactMe';
 import ScrollableAnchor from 'react-scrollable-anchor';
 
 class App extends Component {
 
-
   render() {
     return (
       <div>
-        <Menu/>
+        <div id="menu">
+          <Menu/>
+        </div>
         <ScrollableAnchor id={'home'}>
           <div className="page">
             <Home/>
@@ -23,9 +24,9 @@ class App extends Component {
             <AboutMe/>
           </div>
         </ScrollableAnchor>
-        <ScrollableAnchor id={'externalLinks'}>
+        <ScrollableAnchor id={'contactMe'}>
           <div className="page">
-            <ImageLinks/>
+            <ContactMe/>
           </div>
         </ScrollableAnchor>
       </div>

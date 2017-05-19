@@ -25,13 +25,13 @@ it('navbar contains header with text "Home"', () => {
 it('navbar contains link with text "About me"', () => {
   const menu = mount(<Menu />);
   const firstLink = menu.find('a').at(1);
-  expect(firstLink.text()).toBe("About me");
+  expect(firstLink.text()).toBe("About Me");
   expect(firstLink.props().href).toBe("#aboutMe");
 });
 
-it('navbar contains link with text "Links"', () => {
+it('navbar contains link with text "Contact Me"', () => {
   const menu = mount(<Menu />);
   const secondLink = menu.find('a').at(2);
-  expect(secondLink.text()).toBe("Links");
-  expect(secondLink.props().href).toBe("#externalLinks");
+  expect(secondLink.text()).toBe("Contact Me");
+  expect(secondLink.props().href).toBe("#contactMe");
 });
