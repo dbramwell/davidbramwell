@@ -10,7 +10,7 @@ function Emailer() {
 	});
 }
 
-function generateContent(name, email, content) {
+Emailer.prototype.generateContent = function(name, email, content) {
 	return '<h2>Name:</h2>' +
 		'<p>' + name + '</p><br>' +
 		'<h2>Email:</h2>' +
@@ -19,39 +19,17 @@ function generateContent(name, email, content) {
 		'<p>' + content + '</p>'
 }
 
-function getMailOptions(name, fromEmail, toEmail, content) {
+Emailer.prototype.getMailOptions = function(name, fromEmail, toEmail, content) {
 	return {
 		from: fromEmail,
 		to: toEmail,
 		subject: 'Website contact from ' + fromEmail,
-		html: generateContent(name, fromEmail, content)
+		html: this.generateContent(name, fromEmail, content)
 	};
 }
 
 Emailer.prototype.sendEmail = function(name, fromEmail, toEmail, content, cb) {
-	this.transporter.sendMail(getMailOptions(name, fromEmail, toEmail, content), function(error, info) {
-		if (error) {
-			cb(null, {statusCode: error.responseCode,
-				body: JSON.stringify({error: error.response}),
-			    headers: {
-			        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-			        "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
-			    }
-			});
-		} else {
-			cb(null, {statusCode: 200,
-				headers: {
-			        "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-			        "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS 
-			    }
-			});
-		}
-	});
+	this.transporter.sendMail(this.getMailOptions(name, fromEmail, toEmail, content), cb);
 };
-
-if (process.env.ENVIRONMENT === "test") {
-	Emailer.prototype.generateContent = generateContent;
-	Emailer.prototype.getMailOptions = getMailOptions;
-}
 
 module.exports = Emailer;

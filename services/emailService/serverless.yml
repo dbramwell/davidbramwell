@@ -61,15 +61,12 @@ functions:
       MAILGUN_EMAIL: ${file(.mailgun.yml):MAILGUN_EMAIL}
       MAILGUN_PASS: ${file(.mailgun.yml):MAILGUN_PASS}
       TO_EMAIL: ${file(.toEmail.yml):TO_EMAIL}
-    handler: emailServiceHandler.email
+    handler: src/emailServiceHandler.email
     events:
       - http:
           method: post
           path: email
           cors: true
-
-plugins:
-  - serverless-mocha-plugin
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
