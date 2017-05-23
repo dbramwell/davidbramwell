@@ -16,6 +16,7 @@ class Menu extends Component {
           <Navbar.Collapse>
             <Nav>
               <NavItem href="#aboutMe">About Me</NavItem>
+              <NavItem href="#projects">Personal Projects</NavItem>
             </Nav>
             <Nav pullRight>
               <NavItem href="#contactMe">Contact Me</NavItem>

@@ -4,7 +4,10 @@ import Home from './home/Home';
 import Menu from './menu/Menu';
 import AboutMe from './aboutMe/AboutMe';
 import ContactMe from './contactMe/ContactMe';
-import ScrollableAnchor from 'react-scrollable-anchor';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+import Projects from './projects/Projects';
+
+configureAnchors({offset: -50});
 
 class App extends Component {
 
@@ -22,6 +25,11 @@ class App extends Component {
         <ScrollableAnchor id={'aboutMe'}>
           <div className="page">
             <AboutMe/>
+          </div>
+        </ScrollableAnchor>
+        <ScrollableAnchor id={'projects'}>
+          <div className="page">
+            <Projects/>
           </div>
         </ScrollableAnchor>
         <ScrollableAnchor id={'contactMe'}>

@@ -26,6 +26,12 @@ it('contains header menu', () => {
   expect(menu.length).toEqual(1);
 });
 
+it('contains Projects section', () => {
+  const app = shallow(<App />);
+  const menu = app.find('Projects');
+  expect(menu.length).toEqual(1);
+});
+
 it('contains contact me form', () => {
   const app = shallow(<App />);
   const contactMe = app.find('ContactMe');

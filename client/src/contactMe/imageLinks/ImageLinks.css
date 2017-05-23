@@ -7,9 +7,3 @@ div.imageLinks {
   display: flex;
   justify-content: center;
 }
-
-div.imageLinksContainer > div.jumbotron {
-	text-align: center;
-	padding: 3rem;
-	border-radius: 2rem;
-}

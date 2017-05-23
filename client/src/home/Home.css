@@ -3,9 +3,7 @@ div.home div.jumbotron {
 	padding: 3rem;
 }
 
-@media screen and (min-width: 1024px) {
-    div.home div.jumbotron {
+div.home div.jumbotron {
 	border-radius: 2rem;
 	margin: 10rem;
-  }
 }

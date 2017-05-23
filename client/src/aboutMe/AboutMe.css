@@ -1,7 +1,7 @@
 div.aboutMe > div.jumbotron {
-	text-align: center;
-	min-height: 100%;
-	  align-items: center;
+  text-align: center;
+  min-height: 100%;
+  align-items: center;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -10,6 +10,7 @@ div.aboutMe > div.jumbotron {
   flex-direction: column;
   justify-content: center;
   max-width:100%;
+  margin-bottom: 5rem;
 }
 
 div.aboutMe {

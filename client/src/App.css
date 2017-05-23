@@ -1,5 +1,4 @@
 div.page {
-  margin-top: 50px;
   min-height: 100vh;
   align-items: center;
   display: -webkit-box;
@@ -10,7 +9,7 @@ div.page {
   justify-content: center;
 }
 
-img {
+a > img {
   margin: 10px;
 }
 
@@ -25,7 +24,7 @@ img {
     100% { transform: scale(1); }
 }
 
-img:hover {
+a > img:hover {
     -webkit-animation-name: pulse;
     animation-name: pulse;
     -webkit-animation-iteration-count: infinite;
